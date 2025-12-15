@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+}
+
+#parent{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+    justify-content: center;
+    align-items: center;
+    background-color: hotpink;
+    border: 2px solid burlywood;
+
+}
+
+#parent h1, h2{
+    color: pink;
+    border: 2px solid burlywood;
+    padding: 20px;
+}
+
+form{
+    position: relative;
+    border: 2px solid burlywood;
+    padding: 10px;
+}
+label{
+    font-size: 20px;
+}
+input{
+    display: inline;
+    margin: 1rem;
+    padding: 1rem;
+    left: 50%;
+    border-radius: 20px;
+}
+button{
+    display: block;
+    position: absolute;
+    left: 50%;
+    padding: 1em;
+    font-size: 1rem;
+    border-radius: 20px;
+}
