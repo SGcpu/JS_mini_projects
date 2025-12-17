@@ -1,0 +1,57 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    flex-direction: column;
+}
+.container{
+    height: 50vh;
+    width: 40%;
+    background-color: rgb(255, 252, 240);
+    margin-bottom: 25px;
+    text-align: center;
+    padding: 25px;
+    border: 2px dashed black;
+}
+.container h1{
+    border-bottom: 2px dashed black;
+    margin-bottom: 5px;
+    height: 15%;
+    width: 100%;
+}
+.container p {
+    /* REMOVE: height: 85%; */ 
+    min-height: 85%; /* Use min-height so it can grow if needed */
+    width: 100%;
+    background-color: antiquewhite;
+    overflow-y: auto; /* Adds a scrollbar if the list gets too long */
+    display: flex;
+    flex-direction: column; /* Stacks tasks vertically */
+    align-items: center;
+    padding: 10px;
+}
+
+/* Fix the form width - mixing vh and % can be unpredictable */
+form {
+    width: 40%; /* Match the container width */
+    height: 5vh;
+    border: 0.5px dashed black;
+    display: flex; 
+}
+input{
+    width: 80%;
+    height: 100%;
+}
+button{
+    width: 19.4%;
+    height: 100%;
+    background-color: blanchedalmond;
+}
