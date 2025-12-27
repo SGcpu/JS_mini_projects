@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(141, 83, 189);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 40rem;
+    width: 35rem;
+    background: #ef85fb;
+    border: 2px dashed black;
+    
+}
+.controls {
+    height: 10%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 1rem;
+}
+.controls i{
+    border-radius: 50%;
+    background-color: azure;
+    height: 35px;
+    width: 35px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(255, 26, 26, 0.22);
+}
+.controls i:first-child {
+    justify-self: start;
+}
+
+.controls i:last-child {
+    justify-self: end;
+}
+.avatar-contents{
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+}
+.avatar-contents img{
+    height: 70%;
+    width: 50%;
+    border-radius: 60px;
+    background-color: antiquewhite;
+}
+.avatar-contents h2{
+    height: 30%;
+    width: 80%;
+}
+.timeline {
+    width: 80%;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+
+    margin: 2rem auto;
+    position: relative;
+    cursor: pointer;
+}
+.player{
+    height: 20%;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.player i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.25);
+    color: white;
+    transition: all 0.2s ease;
+}
+
+
+.player i:nth-child(2) {
+    background-color: white;
+    color: #ef85fb;
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+}
+
+.player i:hover {
+    transform: scale(1.08);
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+
+.player i:nth-child(2):hover {
+    background-color: white;
+}
