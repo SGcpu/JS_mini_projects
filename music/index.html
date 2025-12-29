@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Player</title>
-    <link rel="stylesheet" href="style.css">\
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
     <div class="container">
         <div class="controls">
             <i class="fa-solid fa-chevron-left"></i>
-            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-bars" id="menu"></i>
         </div>
+        
         <div class="avatar-contents">
-            <img>
-            <h2></h2>
+            <img id="cover-image" src="" alt="Album Art">
+            <h2 id="song-title">Loading...</h2>
+            <h3 id="artist-name" style="font-size: 0.9rem; color: white; opacity: 0.8; margin-top: 5px;"></h3>
         </div>
-        <div class="timeline">
-            <div class="progress"></div>
-            <div class="thumb"></div>
+
+        <div class="timeline" id="timeline">
+            <div class="progress" id="progress"></div>
         </div>
+
         <div class="player">
-            <i class="fa-solid fa-backward-step"></i>
-            <i class="fa-solid fa-play-circle"></i>
-            <i class="fa-solid fa-forward-step"></i>
+            <i class="fa-solid fa-backward-step" id="prev-btn"></i>
+            <i class="fa-solid fa-play-circle" id="play-btn"></i>
+            <i class="fa-solid fa-forward-step" id="next-btn"></i>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
-
 </html>

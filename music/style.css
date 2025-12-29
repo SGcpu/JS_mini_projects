@@ -44,6 +44,10 @@ body{
 .controls i:last-child {
     justify-self: end;
 }
+.controls i:hover{
+    transform: scale(1.08);
+    background-color: rgba(255, 255, 255, 9.1);
+}
 .avatar-contents{
     height: 60%;
     width: 100%;
@@ -53,12 +57,13 @@ body{
     align-items: center;
     padding: 5%;
 }
-.avatar-contents img{
-    height: 70%;
-    width: 50%;
-    border-radius: 60px;
+.avatar-contents img {
+    height: 30rem;            /* Keep the height at 30rem */
+    width: 18rem;             /* Set the width to be the same as height */
+    border-radius: 50%;       /* Make it a perfect circle */
     background-color: antiquewhite;
 }
+
 .avatar-contents h2{
     height: 30%;
     width: 80%;
@@ -68,7 +73,6 @@ body{
     height: 6px;
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
-
     margin: 2rem auto;
     position: relative;
     cursor: pointer;
@@ -115,4 +119,23 @@ body{
 
 .player i:nth-child(2):hover {
     background-color: white;
+}
+/* Add these to your existing style.css */
+
+.progress {
+    background-color: #fff; /* White progress fill */
+    height: 100%;
+    width: 0%; /* JS will change this dynamically */
+    border-radius: 10px;
+    transition: width 0.1s linear;
+}
+
+/* Optional: Make the image spin when playing */
+.avatar-contents img.playing {
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
