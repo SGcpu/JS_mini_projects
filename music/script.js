@@ -7,17 +7,22 @@ const prevbtn = document.getElementById('prev-btn')
 const nextbtn = document.getElementById('next-btn')
 const playbtn = document.getElementById('play-btn')
 const menu = document.getElementById('menu')
+const playlistContainer = document.getElementById('playlist');
+const openPlaylistBtn = document.querySelector('.fa-bars'); // The Hamburger icon
+const closePlaylistBtn = document.getElementById('close-playlist'); // The 'X' icon
+const playlistList = document.getElementById('playlist-songs');
 
 
 let songs = []
 let songIndex = 0;
-let isPlaying = false
+let isPlaying = false;
+let isList = false;
 let audio = new Audio();
 
 
 async function fetchsongs() {
     try{
-        const response = await fetch('https://itunes.apple.com/search?term=lofi&media=music&limit=10')
+        const response = await fetch('https://itunes.apple.com/search?term=lofi&media=music&limit=300')
         const data = await response.json();
         songs = data.results.map(track =>({
             title: track.trackName,
@@ -26,11 +31,34 @@ async function fetchsongs() {
             src: track.previewUrl
         }))
         loadSong(songs[songIndex])
+        playlistdisplay()
     }catch(error){
         console.error("Error fecthing music", error)
         titleEl.innertext = "Error Loading Music";
     }
 }
+
+
+function playlistdisplay() {
+    playlistList.innerHTML = '';
+
+    songs.forEach((song, index) => {
+        const item = document.createElement('li');
+        
+        item.innerText = song.title;
+        item.classList.add('song-item');
+
+        item.addEventListener('click', () => {
+            songIndex = index; 
+            loadSong(songs[songIndex]); 
+            playSong(); 
+            playlistContainer.classList.remove('active'); 
+        });
+
+        playlistList.append(item);
+    });
+}
+
 
 function loadSong(song){
     titleEl.innerText = song.title;
@@ -96,6 +124,7 @@ function setProgress(e) {
     audio.currentTime = (clickX/width) * duration;
 }
 
+
 playbtn.addEventListener('click', toggle)
 prevbtn.addEventListener('click', prevSong)
 nextbtn.addEventListener('click', nextSong)
@@ -103,6 +132,12 @@ audio.addEventListener('timeupdate', updateProgress)
 audio.addEventListener('ended', nextSong)
 timeline.addEventListener('click', setProgress)
 menu.addEventListener('click', (e)=>{
-    alert("Feature coming soon!")
+    menu()
 })
+openPlaylistBtn.addEventListener('click', () => {
+    playlistContainer.classList.add('active');
+});
+closePlaylistBtn.addEventListener('click', () => {
+    playlistContainer.classList.remove('active');
+});
 fetchsongs()

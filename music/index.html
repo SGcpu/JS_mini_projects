@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,22 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <div class="container">
         <div class="controls">
             <i class="fa-solid fa-chevron-left"></i>
             <i class="fa-solid fa-bars" id="menu"></i>
         </div>
-        
+        <div class="playlist-container" id="playlist">
+            <div class="playlist-header">
+                <h3>Queue</h3>
+                <i class="fa-solid fa-xmark" id="close-playlist"></i>
+            </div>
+            <ul id="playlist-songs">
+            </ul>
+        </div>
+
         <div class="avatar-contents">
             <img id="cover-image" src="" alt="Album Art">
             <h2 id="song-title">Loading...</h2>
@@ -33,4 +43,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

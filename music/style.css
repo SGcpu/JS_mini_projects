@@ -18,7 +18,8 @@ body{
     width: 35rem;
     background: #ef85fb;
     border: 2px dashed black;
-    
+    position: relative;
+    overflow: hidden;
 }
 .controls {
     height: 10%;
@@ -138,4 +139,67 @@ body{
 @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+
+
+/* Playlist Overlay */
+.playlist-container {
+    position: absolute;
+    top: 100%; /* Initially hidden below the card */
+    left: 0;
+    width: 100%;
+    height: 80%; /* Covers the middle section */
+    background-color: rgba(255, 255, 255, 0.95);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    transition: top 0.4s ease; /* Smooth slide up effect */
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+/* Class to activate the menu */
+.playlist-container.active {
+    top: 20%; /* Slides up to cover everything below controls */
+}
+
+.playlist-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: #8d53bd;
+}
+
+.playlist-header i {
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+#playlist-songs {
+    list-style: none;
+    overflow-y: auto; /* Allow scrolling if list is long */
+    height: 100%;
+}
+
+.song-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    color: #333;
+    transition: background 0.2s;
+}
+
+.song-item:hover {
+    background-color: #ef85fb;
+    color: white;
+}
+
+/* Highlight the currently playing song */
+.song-item.active-song {
+    color: #8d53bd;
+    font-weight: bold;
 }
