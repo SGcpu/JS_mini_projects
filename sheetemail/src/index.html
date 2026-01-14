@@ -16,13 +16,15 @@
         class="w-full h-screen bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] bg-cover bg-center bg-no-repeat">
         <h3 class="text-6xl pt-36 pl-24">Coming Soon!</h3> <!-- Changed mt-7 to pt-7 -->
         <h1 class="font-bold text-4xl pl-24 pt-12">Our Brand new <br> Website is on its way</h1>
-        <form name="submit-to-google-sheet" class="ml-22 mt-12 text-white text-2xl">
+        <form name="submit-to-google-sheet" class="flex flex-col ml-22 mt-12 text-gray-600 text-2xl">
             <input class="p-2 w-fit bg-white h-12" type="email" name="email" id="email_input"
                 placeholder="Your Email Id">
-            <button type="submit" id="send" class="bg-green-600 h-12 p-2 text-center w-fit">
+            <input type="text" class="p-2 w-fit bg-white h-12 mt-4" name="text" id="message_input"
+                placeholder="Add Your message here">
+            <button type="submit" id="send" class="mt-4 bg-green-600 h-12 p-2 text-center w-fit">
                 <i class="fa-solid fa-envelope text-3xl"></i>
             </button>
-            <button type="submit" id="sent" class="hidden bg-green-600 h-12 p-2 text-center w-fit">
+            <button type="submit" id="sent" class="hidden mt-4 bg-green-600 h-12 p-2 text-center w-fit">
                 <i class="fa-solid fa-envelope-circle-check hidden text-3xl"></i>
             </button>
         </form>
