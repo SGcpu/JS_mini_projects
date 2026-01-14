@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sheetgoogle-sheets</title>
+    <link href="./output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div id="hero"
+        class="w-full h-screen bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] bg-cover bg-center bg-no-repeat">
+        <h3 class="text-6xl pt-36 pl-24">Coming Soon!</h3> <!-- Changed mt-7 to pt-7 -->
+        <h1 class="font-bold text-4xl pl-24 pt-12">Our Brand new <br> Website is on its way</h1>
+        <form name="submit-to-google-sheet" class="ml-22 mt-12 text-white text-2xl">
+            <input class="p-2 w-fit bg-white h-12" type="email" name="email" id="email_input"
+                placeholder="Your Email Id">
+            <button type="submit" id="send" class="bg-green-600 h-12 p-2 text-center w-fit">
+                <i class="fa-solid fa-envelope text-3xl"></i>
+            </button>
+            <button type="submit" id="sent" class="hidden bg-green-600 h-12 p-2 text-center w-fit">
+                <i class="fa-solid fa-envelope-circle-check hidden text-3xl"></i>
+            </button>
+        </form>
+        <span id="msg" class="hidden pl-24 text-white">Thank You for Subscribing!</span>
+    </div>
+
+
+
+    <script>
+        const scriptURL = process.env.SCRIPT_URL || '';
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById('msg')
+        const sent_icon = document.getElementById('sent')
+        const send_icon = document.getElementById('send')
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    sent_icon.classList.toggle('hidden')
+                    send_icon.classList.toggle('hidden')
+                    msg.classList.toggle('hidden')
+                    setTimeout(() => {
+                        sent_icon.classList.toggle('hidden')
+                        send_icon.classList.toggle('hidden')
+                        msg.classList.toggle('hidden')
+                    }, 5000)
+                    form.reset();
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+</body>
+
+</html>
