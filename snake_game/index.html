@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake game</title>
+    <link rel="stylesheet" href="./src/output.css">
+</head>
+
+<body>
+    <main class="h-screen w-full bg-[#0c0c0c] text-[#f0f0f0]">
+        <section class="flex flex-col w-full h-full p-10 gap-2">
+            <div id="infos" class="flex justify-between">
+                <div class="p-4 border-2 border-[#333333] rounded-sm">
+                    <h3>High Score:
+                        <span id="high-score">0</span>
+                    </h3>
+                </div>
+                <div class="p-4 border-2 border-[#333333] rounded-sm">
+                    <h3>Score:
+                        <span id="score">0</span>
+                    </h3>
+                </div>
+                <div class="p-4 border-2 border-[#333333] rounded-sm">
+                    <h3>Time:
+                        <span id="time">00:00</span>
+                    </h3>
+                </div>
+            </div>
+            <div id="board"
+                class="border grow grid grid-cols-[repeat(auto-fill,minmax(30px,1fr))] grid-rows-[repeat(auto-fill,minmax(30px,1fr))]">
+
+            </div>
+        </section>
+        <div id="start_modal"
+            class="h-screen w-full fixed top-0 bg-[#34343487] backdrop-blur-sm flex justify-center items-center">
+            <div id="start_game" class="flex flex-col items-center gap-7">
+                <h2>Welcome to Snake Game</h2>
+                <button id="start-btn" class="start-btn">Start
+                    Game</button>
+            </div>
+        </div>
+        <div id="end_modal"
+            class="hidden h-screen w-full fixed top-0 bg-[#34343487] backdrop-blur-sm flex justify-center items-center">
+            <div id="end_game" class="flex flex-col items-center gap-7">
+                <div id="infos" class="flex justify-between">
+                    <div class="p-4 border-2 border-[#333333] rounded-sm">
+                        <h3>High Score:
+                            <span id="end_high_score">0</span>
+                        </h3>
+                    </div>
+                    <div class="p-4 border-2 border-[#333333] rounded-sm">
+                        <h3>Score:
+                            <span  id="end_score">0</span>
+                        </h3>
+                    </div>
+                    <div class="p-4 border-2 border-[#333333] rounded-sm">
+                        <h3>Time:
+                            <span id="end_time">00:00</span>
+                        </h3>
+                    </div>
+                </div>
+                <h2>You Lost!</h2>
+                <button id="restart-btn" class="start-btn"
+                    class="border-none p-3 bg-white text-black rounded-lg transition-all duration-300 ease hover:scale-110">Restart
+                    Game</button>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

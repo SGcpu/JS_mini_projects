@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@source "../index.html";
+@source "../script.js";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.block{
+    @apply bg-amber-500 border
+}
+
+.fill{
+    @apply bg-[#fdfdfc]
+}
+.food{
+    @apply bg-[#ff3b3b]
+}
+.start-btn{
+    @apply border-none p-3 bg-white text-black rounded-lg transition-all duration-300 ease-in hover:scale-110
+}
