@@ -1,0 +1,178 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+:root{
+    --bg-color:#000000;
+    --primary-text-color:#f4f4f4;
+    --bg-button-color:#1a1a1a;
+    --bg-task-color:#2a2a2a;
+
+    /* padding variables */
+    --nav-padding:15px 30px;
+    --section-padding:15px 30px;
+    --padding-sm:5px;
+    --padding-md:10px;
+    --padding-lg:15px;
+    --padding-xl:20px;
+    --padding-2xl:30px;
+    --delete-color:#eb1168;
+
+    /* Border radius variables*/
+    
+    --border-radius-sm:5px;
+    --border-radius-md:10px;
+    --border-radius-lg:15px;
+    --border-radius-xl:20px;
+    --border-radius-2xl:30px;
+}
+
+body,html{
+    height: 100%;
+    width: 100%;
+}
+body{
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+}
+main{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+nav{
+    padding:var(--nav-padding);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+nav button{
+    background-color: var(--bg-button-color);
+    border: none;
+    outline: none;
+    color: var(--primary-text-color);
+    padding: var(--padding-md) var(--padding-lg);
+    cursor: pointer;
+    border-radius: var(--border-radius-md);
+}
+section{
+    padding: var(--section-padding);
+    display: flex;
+    justify-content: space-between;
+    /* background-color: blue; */
+    flex-grow: 1;
+    gap: var(--padding-xl);
+}
+.task-column{
+    background-color: var(--bg-button-color);
+    flex-grow: 1;
+    padding: var(--padding-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-sm);
+    border-radius: var(--border-radius-md);
+    transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+}
+section .task-column .heading{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+section .task-column  .task{
+    background-color: var(--bg-task-color);
+    padding: var(--padding-sm);
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-sm);
+    cursor: grab;
+}
+ .hover-over{
+    border: 2px dashed var(--primary-text-color);
+    scale: 1.05;
+}
+
+section .task-column .task button{
+    align-self: flex-end;
+    cursor: pointer;
+    padding: var(--padding-sm) var(--padding-md);
+    border: none;
+    outline: none;
+    background-color: var(--delete-color);
+    color: var(--primary-text-color);
+    border-radius: var(--border-radius-sm);
+}
+.modal{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    
+}
+.modal.active{
+    display: flex;
+}
+.modal .center{
+    background-color: var(--bg-button-color);
+    padding: var(--padding-2xl);
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-sm);
+    z-index: 10;
+
+}
+.modal .center input,.modal .center textarea,.modal .center select{
+    background-color: var(--bg-task-color);
+    border: none;
+    outline: none;
+    color: var(--primary-text-color);
+    padding: var(--padding-sm);
+    border-radius: var(--border-radius-sm);
+
+}
+.modal .center button{
+    background-color: rgb(91, 77, 77);
+    border: none;
+    outline: none;
+    color: var(--primary-text-color);
+    padding: var(--padding-md);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-size: var(--padding-lg);
+    width: fit-content;
+    align-self: center;
+    margin-top: 0.5rem;
+
+}
+.modal .bg{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color:rgba(61, 61, 61, 0.404);
+    backdrop-filter: blur(5px);
+    
+}
+#closemodal{
+    height: 20px;
+    width: 20px;
+}
+#closemodal button{ 
+    padding: 30px;
+    font-size: x-large;
+    font-weight: 900;
+    color: white;
+    background-color: var(--bg-button-color);
+}
