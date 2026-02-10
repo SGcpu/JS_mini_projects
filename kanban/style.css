@@ -1,116 +1,228 @@
-*{
+/* WESTERN AMERICANA KANBAN THEME */
+
+/* Import Western Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rye&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-html{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-:root{
-    --bg-color:#000000;
-    --primary-text-color:#f4f4f4;
-    --bg-button-color:#1a1a1a;
-    --bg-task-color:#2a2a2a;
 
-    /* padding variables */
-    --nav-padding:15px 30px;
-    --section-padding:15px 30px;
-    --padding-sm:5px;
-    --padding-md:10px;
-    --padding-lg:15px;
-    --padding-xl:20px;
-    --padding-2xl:30px;
-    --delete-color:#eb1168;
-
-    /* Border radius variables*/
+:root {
+    /* Western Palette */
+    --wood-dark: #3e2723;
+    --wood-light: #5d4037;
+    --paper-bg: #f4e4bc; /* Parchment color */
+    --paper-worn: #e6d2a0;
+    --ink-black: #2c2c2c;
+    --faded-ink: #4a4a4a;
+    --blood-red: #8a0303; /* For delete/urgent */
+    --gold: #ffd700;
+    --brass: #b58e3e;
     
-    --border-radius-sm:5px;
-    --border-radius-md:10px;
-    --border-radius-lg:15px;
-    --border-radius-xl:20px;
-    --border-radius-2xl:30px;
+    /* Spacing */
+    --nav-padding: 15px 30px;
+    --section-padding: 20px;
+    --gap-md: 15px;
+    
+    /* Textures */
+    --wood-texture: repeating-linear-gradient(90deg, #3e2723 0px, #4e342e 2px, #3e2723 4px, #3e2723 10px);
 }
 
-body,html{
+html {
+    font-family: 'Courier Prime', monospace; /* Typewriter style for body text */
+}
+
+body, html {
     height: 100%;
     width: 100%;
 }
-body{
-    background-color: var(--bg-color);
-    color: var(--primary-text-color);
+
+body {
+    /* Wood Grain Background */
+    background-color: var(--wood-dark);
+    background-image: var(--wood-texture);
+    color: var(--ink-black);
+    /* Vignette effect (dark corners) */
+    box-shadow: inset 0 0 150px rgba(0,0,0,0.9);
 }
-main{
+
+main {
     height: 100%;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
-nav{
-    padding:var(--nav-padding);
+
+/* --- WOODEN SIGN BUTTONS --- */
+nav button, 
+.modal .center button, 
+section .task-column .task button {
+    background-color: var(--wood-light);
+    border: 2px solid var(--brass);
+    color: var(--paper-bg);
+    padding: 8px 16px;
+    cursor: pointer;
+    font-family: 'Rye', serif; /* Western Header Font */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    transition: transform 0.1s;
+    
+    /* Wooden plank texture on buttons */
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1));
+}
+
+nav button:hover, 
+.modal .center button:hover {
+    transform: scale(1.05);
+    background-color: var(--wood-dark);
+    border-color: var(--gold);
+}
+
+nav {
+    padding: var(--nav-padding);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    /* Leather texture header */
+    background-color: #2c1a12;
+    border-bottom: 4px solid var(--brass);
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
+    z-index: 5;
 }
-nav button{
-    background-color: var(--bg-button-color);
-    border: none;
-    outline: none;
-    color: var(--primary-text-color);
-    padding: var(--padding-md) var(--padding-lg);
-    cursor: pointer;
-    border-radius: var(--border-radius-md);
+
+/* Header Text Style */
+nav::before {
+    content: "SALOON TASK BOARD";
+    color: var(--paper-bg);
+    font-family: 'Rye', serif;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 0px #000;
 }
-section{
+
+section {
     padding: var(--section-padding);
     display: flex;
     justify-content: space-between;
-    /* background-color: blue; */
     flex-grow: 1;
-    gap: var(--padding-xl);
+    gap: 30px;
+    overflow-x: auto;
 }
-.task-column{
-    background-color: var(--bg-button-color);
+
+/* THE NOTICE BOARD COLUMNS */
+.task-column {
+    background-color: transparent;
     flex-grow: 1;
-    padding: var(--padding-sm);
+    padding: 15px;
     display: flex;
     flex-direction: column;
-    gap: var(--padding-sm);
-    border-radius: var(--border-radius-md);
-    transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
+    gap: 15px;
+    min-width: 300px;
+    
+    /* Border that looks like a wooden frame */
+    border: 8px solid #4a3026;
+    border-image: repeating-linear-gradient(45deg, #4a3026, #2d1d17 10px) 1;
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.6);
+    background-color: rgba(44, 26, 18, 0.4); /* Dark transparency */
 }
-section .task-column .heading{
+
+/* Column Headers - "Wanted" Sign style */
+section .task-column .heading {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    background-color: var(--paper-bg);
+    color: var(--ink-black);
+    padding: 10px;
+    font-family: 'Rye', serif;
+    font-size: 1.2rem;
+    border: 2px solid var(--ink-black);
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.3);
     
+    /* Nail effect in corners */
+    position: relative;
 }
-section .task-column  .task{
-    background-color: var(--bg-task-color);
-    padding: var(--padding-sm);
-    border-radius: var(--border-radius-sm);
+section .task-column .heading::after,
+section .task-column .heading::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #1a1a1a;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+section .task-column .heading::before { left: 10px; }
+section .task-column .heading::after { right: 10px; }
+
+
+/* --- THE TASKS (WANTED POSTERS) --- */
+section .task-column .task {
+    background-color: var(--paper-bg);
+    /* Old Paper Gradient */
+    background-image: radial-gradient(var(--paper-bg), var(--paper-worn));
+    color: var(--ink-black);
+    padding: 20px 15px;
     display: flex;
     flex-direction: column;
-    gap: var(--padding-sm);
+    gap: 10px;
     cursor: grab;
-}
- .hover-over{
-    border: 2px dashed var(--primary-text-color);
-    scale: 1.05;
+    position: relative;
+    
+    /* Rough Edges Effect */
+    clip-path: polygon(
+        0% 0%, 100% 0%, 100% 100%, 95% 98%, 90% 100%, 85% 98%, 80% 100%, 
+        75% 98%, 70% 100%, 65% 98%, 60% 100%, 55% 98%, 50% 100%, 45% 98%, 
+        40% 100%, 35% 98%, 30% 100%, 25% 98%, 20% 100%, 15% 98%, 10% 100%, 
+        5% 98%, 0% 100%
+    );
+    
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.4);
+    
+    /* Saloon Door Swing Animation on Load/Hover */
+    transform-origin: top center;
+    animation: swing-in 0.8s ease-out;
 }
 
-section .task-column .task button{
-    align-self: flex-end;
-    cursor: pointer;
-    padding: var(--padding-sm) var(--padding-md);
-    border: none;
-    outline: none;
-    background-color: var(--delete-color);
-    color: var(--primary-text-color);
-    border-radius: var(--border-radius-sm);
+@keyframes swing-in {
+    0% { transform: rotateX(-90deg); opacity: 0; }
+    50% { transform: rotateX(20deg); }
+    70% { transform: rotateX(-10deg); }
+    100% { transform: rotateX(0deg); opacity: 1; }
 }
-.modal{
+
+.hover-over {
+    transform: rotate(2deg) scale(1.02);
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.5);
+    background-color: #fff8e1; /* Brighter paper */
+    z-index: 10;
+}
+
+/* "REWARD" or Delete Button */
+section .task-column .task button {
+    align-self: flex-end;
+    background-color: transparent;
+    border: 2px solid var(--blood-red);
+    color: var(--blood-red);
+    font-family: 'Rye', serif;
+    font-size: 0.8rem;
+    padding: 2px 8px;
+    box-shadow: none;
+    border-radius: 0;
+    transform: rotate(-5deg); /* Stamp look */
+}
+
+section .task-column .task button:hover {
+    background-color: var(--blood-red);
+    color: var(--paper-bg);
+}
+
+/* --- MODAL (THE TELEGRAM) --- */
+.modal {
     position: fixed;
     height: 100vh;
     width: 100vw;
@@ -119,60 +231,76 @@ section .task-column .task button{
     display: none;
     justify-content: center;
     align-items: center;
-    
+    z-index: 100;
 }
-.modal.active{
+
+.modal.active {
     display: flex;
 }
-.modal .center{
-    background-color: var(--bg-button-color);
-    padding: var(--padding-2xl);
-    border-radius: var(--border-radius-sm);
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-sm);
-    z-index: 10;
 
-}
-.modal .center input,.modal .center textarea,.modal .center select{
-    background-color: var(--bg-task-color);
-    border: none;
-    outline: none;
-    color: var(--primary-text-color);
-    padding: var(--padding-sm);
-    border-radius: var(--border-radius-sm);
-
-}
-.modal .center button{
-    background-color: rgb(91, 77, 77);
-    border: none;
-    outline: none;
-    color: var(--primary-text-color);
-    padding: var(--padding-md);
-    border-radius: var(--border-radius-sm);
-    cursor: pointer;
-    font-size: var(--padding-lg);
-    width: fit-content;
-    align-self: center;
-    margin-top: 0.5rem;
-
-}
-.modal .bg{
+.modal .bg {
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color:rgba(61, 61, 61, 0.404);
-    backdrop-filter: blur(5px);
-    
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(2px);
 }
-#closemodal{
-    height: 20px;
-    width: 20px;
-}
-#closemodal button{ 
+
+.modal .center {
+    background-color: var(--paper-bg);
     padding: 30px;
-    font-size: x-large;
-    font-weight: 900;
-    color: white;
-    background-color: var(--bg-button-color);
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 10;
+    
+    /* Telegram styling */
+    border: 1px solid var(--ink-black);
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.5);
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 29px, #ccc 30px);
+    line-height: 30px;
+}
+
+.modal .center::before {
+    content: "WESTERN UNION TELEGRAM";
+    font-family: 'Rye', serif;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    border-bottom: 2px solid black;
+}
+
+.modal .center input, 
+.modal .center textarea, 
+.modal .center select {
+    background-color: rgba(255,255,255,0.5);
+    border: none;
+    border-bottom: 2px dashed var(--ink-black);
+    outline: none;
+    color: var(--ink-black);
+    padding: 5px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 1.1rem;
+    width: 100%;
+}
+
+.modal .center button {
+    margin-top: 20px;
+    background-color: var(--ink-black);
+    color: var(--paper-bg);
+    border: none;
+    align-self: center;
+}
+
+/* Close button custom style */
+#closemodal button {
+    background: transparent;
+    color: var(--ink-black);
+    border: none;
+    font-size: 2rem;
+    box-shadow: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
