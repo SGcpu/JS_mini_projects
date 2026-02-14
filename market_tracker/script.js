@@ -2,7 +2,7 @@ const grid = document.getElementById('asset-grid')
 const refreshBtn = document.getElementById('refresh-btn')
 const statusMsg = document.getElementById('status-message')
 
-const COINS = ['bitcoin', 'ethereum', 'solana', 'dogecoin'];
+const COINS = ['bitcoin', 'ethereum', 'solana', 'dogecoin', 'cardano', 'ripple', 'polkadot', 'litecoin', 'chainlink', 'uniswap', 'stellar', 'tron', 'avalanche', 'monero', 'tezos'];
 
 async function fetchMarketData(){
     try{
