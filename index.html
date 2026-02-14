@@ -4,326 +4,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGcpu's JS Mini Projects</title>
+    <title>SGcpu | Creative Developer Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
+    <div class="background-glow"></div>
+
     <header class="gh-header">
         <div class="container">
             <div class="profile-section">
-                <div class="avatar-container">
+                <div class="avatar-wrapper">
                     <img src="https://github.com/SGcpu.png" alt="SGcpu" class="avatar">
+                    <div class="status-indicator"></div>
                 </div>
                 <div class="user-info">
-                    <h1>SGcpu: JavaScript Mini Projects for you</h1>
-                    <p class="bio">Building creative web experiences. Exploring JavaScript, one project at a time.</p>
-                    <div class="stats">
-                        <span><i class="fa-regular fa-user"></i> <b>10+</b> Followers</span>
-                        <span><i class="fa-regular fa-star"></i> <b>50+</b> Stars</span>
-                        <span><i class="fa-solid fa-code-branch"></i> <b>20+</b> Projects</span>
+                    <h1>SGcpu: JavaScript Mini Projects For U <span class="handle">@SGcpu</span></h1>
+                    <div class="bio-wrapper">
+                        <span class="prompt">> </span>
+                        <p class="bio" id="typewriter"></p>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <i class="fa-regular fa-user"></i>
+                            <div class="stat-text">
+                                <b>10+</b> <span>Followers</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fa-regular fa-star"></i>
+                            <div class="stat-text">
+                                <b>50+</b> <span>Stars</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fa-solid fa-code-branch"></i>
+                            <div class="stat-text">
+                                <b>20+</b> <span>Projects</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="header-actions">
-                <a href="https://github.com/SGcpu" target="_blank" class="btn btn-secondary">
-                    <i class="fa-brands fa-github"></i> View GitHub Profile
-                </a>
+                <div class="gh-buttons-wrapper">
+                    <a class="github-button" href="https://github.com/SGcpu"
+                        data-color-scheme="no-preference: dark; light: light; dark: dark;" data-size="large"
+                        data-show-count="true" aria-label="Follow @SGcpu on GitHub">Follow @SGcpu</a>
+                    <a class="github-button" href="https://github.com/SGcpu/JS_mini_projects"
+                        data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-star"
+                        data-size="large" data-show-count="true"
+                        aria-label="Star SGcpu/JS_mini_projects on GitHub">Star</a>
+                    <a class="github-button" href="https://github.com/SGcpu/JS_mini_projects/fork"
+                        data-color-scheme="no-preference: dark; light: light; dark: dark;"
+                        data-icon="octicon-repo-forked" data-size="large" data-show-count="true"
+                        aria-label="Fork SGcpu/JS_mini_projects on GitHub">Fork</a>
+                </div>
             </div>
         </div>
+
+        <div class="contribution-strip" id="contributionGraph"></div>
     </header>
 
-    <nav class="gh-nav">
-        <div class="container">
-            <ul>
-                <li class="active">
-                    <i class="fa-solid fa-book-bookmark"></i> Projects <span class="counter">20</span>
-                </li>
-                <li>
-                    <i class="fa-solid fa-cube"></i> Packages
-                </li>
-                <li>
-                    <i class="fa-solid fa-star"></i> Stars
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <div class="sticky-nav-wrapper">
+        <nav class="gh-nav container">
+            <div class="nav-left">
+                <ul>
+                    <li class="active" data-filter="all">
+                        <i class="fa-solid fa-book-bookmark"></i> Projects <span class="counter">20</span>
+                    </li>
+                    <li data-filter="js">
+                        <i class="fa-brands fa-js"></i> JavaScript
+                    </li>
+                    <li data-filter="html">
+                        <i class="fa-brands fa-html5"></i> HTML/CSS
+                    </li>
+                </ul>
+            </div>
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="projectSearch" placeholder="Find a repository...">
+                <span class="cmd-key">/</span>
+            </div>
+        </nav>
+    </div>
 
     <main class="container">
-        <div class="projects-grid">
-            <!-- Project Cards -->
-            <div class="project-card">
-                <div class="card-header">
-                    <a href="./astro/index.html" class="repo-name">astro</a>
-                    <span class="badge public">Public</span>
-                </div>
-                <p class="description">Space-themed exploration project.</p>
-                <div class="card-footer">
-                    <span class="language"><span class="lang-color"
-                            style="background-color: #f1e05a;"></span>JavaScript</span>
-                    <a href="./astro/index.html" class="btn-link">View Demo</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="card-header">
-                    <a href="./Backgroundcolorchanger/index.html" class="repo-name">Backgroundcolorchanger</a>
-                    <span class="badge public">Public</span>
-                </div>
-                <p class="description">Change background colors dynamically.</p>
-                <div class="card-footer">
-                    <span class="language"><span class="lang-color"
-                            style="background-color: #e34c26;"></span>HTML/CSS</span>
-                    <a href="./Backgroundcolorchanger/index.html" class="btn-link">View Demo</a>
+        <div class="projects-grid" id="projectsGrid">
+            <div class="project-card" data-category="js" data-tilt>
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="header-left">
+                            <i class="fa-regular fa-folder card-icon"></i>
+                            <a href="./astro/index.html" class="repo-name">astro</a>
+                        </div>
+                        <span class="badge public">Public</span>
+                    </div>
+                    <p class="description">Space-themed exploration project. Navigate the cosmos.</p>
+                    <div class="card-footer">
+                        <span class="language"><span class="lang-color js"></span>JavaScript</span>
+                        <div class="card-actions">
+                            <a href="./astro/index.html" class="btn-icon" title="View Demo"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-card">
-                <div class="card-header">
-                    <a href="./clicker/index.html" class="repo-name">clicker</a>
-                    <span class="badge public">Public</span>
-                </div>
-                <p class="description">A simple clicker game/counter.</p>
-                <div class="card-footer">
-                    <span class="language"><span class="lang-color"
-                            style="background-color: #f1e05a;"></span>JavaScript</span>
-                    <a href="./clicker/index.html" class="btn-link">View Demo</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="card-header">
-                    <a href="./countdown_timer/index.html" class="repo-name">countdown_timer</a>
-                    <span class="badge public">Public</span>
-                </div>
-                <p class="description">Countdown to a specific date or time.</p>
-                <div class="card-footer">
-                    <span class="language"><span class="lang-color"
-                            style="background-color: #f1e05a;"></span>JavaScript</span>
-                    <a href="./countdown_timer/index.html" class="btn-link">View Demo</a>
+            <div class="project-card" data-category="html" data-tilt>
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="header-left">
+                            <i class="fa-regular fa-folder card-icon"></i>
+                            <a href="./Backgroundcolorchanger/index.html" class="repo-name">bg-changer</a>
+                        </div>
+                        <span class="badge public">Public</span>
+                    </div>
+                    <p class="description">Dynamic DOM manipulation to alter background aesthetics.</p>
+                    <div class="card-footer">
+                        <span class="language"><span class="lang-color html"></span>HTML/CSS</span>
+                        <div class="card-actions">
+                            <a href="./Backgroundcolorchanger/index.html" class="btn-icon"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-card">
-                <div class="card-header">
-                    <a href="./Digitalclock/index.html" class="repo-name">Digitalclock</a>
-                    <span class="badge public">Public</span>
-                </div>
-                <p class="description">Real-time digital clock display.</p>
-                <div class="card-footer">
-                    <span class="language"><span class="lang-color"
-                            style="background-color: #f1e05a;"></span>JavaScript</span>
-                    <a href="./Digitalclock/index.html" class="btn-link">View Demo</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="card-header">
-                    <a href="./form/index.html" class="repo-name">form</a>
-                    <span class="badge public">Public</span>
-                </div>
-                <p class="description">Form validation and handling examples.</p>
-                <div class="card-footer">
-                    <span class="language"><span class="lang-color"
-                            style="background-color: #e34c26;"></span>HTML</span>
-                    <a href="./form/index.html" class="btn-link">View Demo</a>
+            <div class="project-card" data-category="js" data-tilt>
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="header-left">
+                            <i class="fa-regular fa-folder card-icon"></i>
+                            <a href="./clicker/index.html" class="repo-name">clicker</a>
+                        </div>
+                        <span class="badge public">Public</span>
+                    </div>
+                    <p class="description">A state-management experiment via a clicker game.</p>
+                    <div class="card-footer">
+                        <span class="language"><span class="lang-color js"></span>JavaScript</span>
+                        <div class="card-actions">
+                            <a href="./clicker/index.html" class="btn-icon"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-card">
-                <div class="card-header">
-                    <a href="./image_editor/index.html" class="repo-name">image_editor</a>
-                    <span class="badge public">Public</span>
-                </div>
-                <p class="description">Browser-based image editing tools.</p>
-                <div class="card-footer">
-                    <span class="language"><span class="lang-color" style="background-color: #563d7c;"></span>CSS</span>
-                    <a href="./image_editor/index.html" class="btn-link">View Demo</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="card-header">
-                    <a href="./incometax/index.html" class="repo-name">incometax</a>
-                    <span class="badge public">Public</span>
-                </div>
-                <p class="description">Income tax calculator utility.</p>
-                <div class="card-footer">
-                    <span class="language"><span class="lang-color"
-                            style="background-color: #f1e05a;"></span>JavaScript</span>
-                    <a href="./incometax/index.html" class="btn-link">View Demo</a>
+            <div class="project-card" data-category="js" data-tilt>
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="header-left">
+                            <i class="fa-regular fa-folder card-icon"></i>
+                            <a href="./countdown_timer/index.html" class="repo-name">countdown</a>
+                        </div>
+                        <span class="badge public">Public</span>
+                    </div>
+                    <p class="description">Time manipulation logic to track specific dates.</p>
+                    <div class="card-footer">
+                        <span class="language"><span class="lang-color js"></span>JavaScript</span>
+                        <div class="card-actions">
+                            <a href="./countdown_timer/index.html" class="btn-icon"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-card">
-                <div class="card-header">
-                    <a href="./kanban/index.html" class="repo-name">kanban</a>
-                    <span class="badge public">Public</span>
-                </div>
-                <p class="description">Kanban board for task management.</p>
-                <div class="card-footer">
-                    <span class="language"><span class="lang-color"
-                            style="background-color: #f1e05a;"></span>JavaScript</span>
-                    <a href="./kanban/index.html" class="btn-link">View Demo</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="card-header">
-                    <a href="./lovecal/index.html" class="repo-name">lovecal</a>
-                    <span class="badge public">Public</span>
-                </div>
-                <p class="description">Fun love calculator application.</p>
-                <div class="card-footer">
-                    <span class="language"><span class="lang-color"
-                            style="background-color: #f1e05a;"></span>JavaScript</span>
-                    <a href="./lovecal/index.html" class="btn-link">View Demo</a>
+            <div class="project-card" data-category="js" data-tilt>
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="header-left">
+                            <i class="fa-regular fa-folder card-icon"></i>
+                            <a href="./movie_search/index.html" class="repo-name">movie_search</a>
+                        </div>
+                        <span class="badge public">Public</span>
+                    </div>
+                    <p class="description">Fetch API implementation to query movie databases.</p>
+                    <div class="card-footer">
+                        <span class="language"><span class="lang-color js"></span>JavaScript</span>
+                        <div class="card-actions">
+                            <a href="./movie_search/index.html" class="btn-icon"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-card">
-                <div class="card-header">
-                    <a href="./market_tracker/index.html" class="repo-name">market_tracker</a>
-                    <span class="badge public">Public</span>
-                </div>
-                <p class="description">Track market data and trends.</p>
-                <div class="card-footer">
-                    <span class="language"><span class="lang-color"
-                            style="background-color: #f1e05a;"></span>JavaScript</span>
-                    <a href="./market_tracker/index.html" class="btn-link">View Demo</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="card-header">
-                    <a href="./mini1/index.html" class="repo-name">mini1</a>
-                    <span class="badge public">Public</span>
-                </div>
-                <p class="description">Mini project collection / experiment.</p>
-                <div class="card-footer">
-                    <span class="language"><span class="lang-color"
-                            style="background-color: #f1e05a;"></span>JavaScript</span>
-                    <a href="./mini1/index.html" class="btn-link">View Demo</a>
+            <div class="project-card" data-category="js" data-tilt>
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="header-left">
+                            <i class="fa-regular fa-folder card-icon"></i>
+                            <a href="./music/index.html" class="repo-name">music_viz</a>
+                        </div>
+                        <span class="badge public">Public</span>
+                    </div>
+                    <p class="description">Audio API visualization and playback controls.</p>
+                    <div class="card-footer">
+                        <span class="language"><span class="lang-color js"></span>JavaScript</span>
+                        <div class="card-actions">
+                            <a href="./music/index.html" class="btn-icon"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-card">
-                <div class="card-header">
-                    <a href="./movie_search/index.html" class="repo-name">movie_search</a>
-                    <span class="badge public">Public</span>
-                </div>
-                <p class="description">Search for movies using an API.</p>
-                <div class="card-footer">
-                    <span class="language"><span class="lang-color"
-                            style="background-color: #f1e05a;"></span>JavaScript</span>
-                    <a href="./movie_search/index.html" class="btn-link">View Demo</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="card-header">
-                    <a href="./music/index.html" class="repo-name">music</a>
-                    <span class="badge public">Public</span>
-                </div>
-                <p class="description">Music player or visualization.</p>
-                <div class="card-footer">
-                    <span class="language"><span class="lang-color"
-                            style="background-color: #f1e05a;"></span>JavaScript</span>
-                    <a href="./music/index.html" class="btn-link">View Demo</a>
+            <div class="project-card" data-category="js" data-tilt>
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="header-left">
+                            <i class="fa-regular fa-folder card-icon"></i>
+                            <a href="./kanban/index.html" class="repo-name">kanban</a>
+                        </div>
+                        <span class="badge public">Public</span>
+                    </div>
+                    <p class="description">Drag-and-drop task management interface.</p>
+                    <div class="card-footer">
+                        <span class="language"><span class="lang-color js"></span>JavaScript</span>
+                        <div class="card-actions">
+                            <a href="./kanban/index.html" class="btn-icon"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-card">
-                <div class="card-header">
-                    <a href="./profile_engine/index.html" class="repo-name">profile_engine</a>
-                    <span class="badge public">Public</span>
+            <div class="project-card" data-category="html" data-tilt>
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="header-left">
+                            <i class="fa-regular fa-folder card-icon"></i>
+                            <a href="./form/index.html" class="repo-name">smart_form</a>
+                        </div>
+                        <span class="badge public">Public</span>
+                    </div>
+                    <p class="description">Advanced validation and UI feedback patterns.</p>
+                    <div class="card-footer">
+                        <span class="language"><span class="lang-color html"></span>HTML</span>
+                        <div class="card-actions">
+                            <a href="./form/index.html" class="btn-icon"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <p class="description">Generate profiles dynamically.</p>
-                <div class="card-footer">
-                    <span class="language"><span class="lang-color"
-                            style="background-color: #f1e05a;"></span>JavaScript</span>
-                    <a href="./profile_engine/index.html" class="btn-link">View Demo</a>
+            </div>
+            <div class="project-card" data-category="css" data-tilt>
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="header-left">
+                            <i class="fa-regular fa-folder card-icon"></i>
+                            <a href="./image_editor/index.html" class="repo-name">img_editor</a>
+                        </div>
+                        <span class="badge public">Public</span>
+                    </div>
+                    <p class="description">CSS filters and transformations engine.</p>
+                    <div class="card-footer">
+                        <span class="language"><span class="lang-color css"></span>CSS</span>
+                        <div class="card-actions">
+                            <a href="./image_editor/index.html" class="btn-icon"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-card">
-                <div class="card-header">
-                    <a href="./quiz/index.html" class="repo-name">quiz</a>
-                    <span class="badge public">Public</span>
-                </div>
-                <p class="description">Interactive quiz application.</p>
-                <div class="card-footer">
-                    <span class="language"><span class="lang-color"
-                            style="background-color: #f1e05a;"></span>JavaScript</span>
-                    <a href="./quiz/index.html" class="btn-link">View Demo</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="card-header">
-                    <a href="./random_quote/index.html" class="repo-name">random_quote</a>
-                    <span class="badge public">Public</span>
-                </div>
-                <p class="description">Generate random quotes for inspiration.</p>
-                <div class="card-footer">
-                    <span class="language"><span class="lang-color"
-                            style="background-color: #f1e05a;"></span>JavaScript</span>
-                    <a href="./random_quote/index.html" class="btn-link">View Demo</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="card-header">
-                    <a href="./sheetemail/src/index.html" class="repo-name">sheetemail</a>
-                    <span class="badge public">Public</span>
-                </div>
-                <p class="description">Email integration with spreadsheets.</p>
-                <div class="card-footer">
-                    <span class="language"><span class="lang-color"
-                            style="background-color: #f1e05a;"></span>JavaScript</span>
-                    <a href="./sheetemail/src/index.html" class="btn-link">View Demo</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="card-header">
-                    <a href="./snake_game/index.html" class="repo-name">snake_game</a>
-                    <span class="badge public">Public</span>
-                </div>
-                <p class="description">Classic Snake game implementation.</p>
-                <div class="card-footer">
-                    <span class="language"><span class="lang-color"
-                            style="background-color: #f1e05a;"></span>JavaScript</span>
-                    <a href="./snake_game/index.html" class="btn-link">View Demo</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="card-header">
-                    <a href="./todo/index.html" class="repo-name">todo</a>
-                    <span class="badge public">Public</span>
-                </div>
-                <p class="description">A simple Todo list application.</p>
-                <div class="card-footer">
-                    <span class="language"><span class="lang-color"
-                            style="background-color: #f1e05a;"></span>JavaScript</span>
-                    <a href="./todo/index.html" class="btn-link">View Demo</a>
-                </div>
-            </div>
         </div>
     </main>
 
     <footer class="gh-footer">
         <div class="container">
-            <div class="footer-logo">
-                <i class="fa-brands fa-github text-muted"></i>
-            </div>
-            <div class="footer-links">
-                <span>&copy; 2024 SGcpu</span>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fa-brands fa-github"></i>
+                    <span>SGcpu / Portfolio</span>
+                </div>
+                <div class="footer-links">
+                    <span>Designed with <i class="fa-solid fa-heart" style="color: #ea4aaa;"></i> & Code</span>
+                    <span class="separator">•</span>
+                    <span>© 2024</span>
+                </div>
             </div>
         </div>
     </footer>
+
+    <script src="script.js"></script>
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 
 </html>
