@@ -1,0 +1,340 @@
+:root {
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --bg-tertiary: #21262d;
+    --text-primary: #c9d1d9;
+    --text-secondary: #8b949e;
+    --border-color: #30363d;
+    --border-active: #8b949e;
+    --accent-color: #58a6ff;
+    --btn-primary-bg: #238636;
+    --btn-primary-hover: #2ea043;
+    --header-bg: #161b22;
+    --card-bg: #0d1117;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-color);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* Header Styles */
+.gh-header {
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 24px 0;
+    margin-bottom: 24px;
+}
+
+.gh-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.profile-section {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.avatar-container {
+    flex-shrink: 0;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 0 1px rgba(240, 246, 252, 0.1);
+}
+
+.user-info h1 {
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--text-primary);
+}
+
+.user-info .bio {
+    color: var(--text-primary);
+    font-size: 16px;
+    margin-top: 4px;
+    margin-bottom: 12px;
+}
+
+.stats {
+    display: flex;
+    gap: 16px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.stats span i {
+    margin-right: 4px;
+}
+
+.stats b {
+    color: var(--text-primary);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+/* Navigation */
+.gh-nav {
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 24px;
+    position: sticky;
+    /* Sticky nav like github profile */
+    top: 0;
+    background-color: var(--bg-primary);
+    z-index: 100;
+    padding-top: 10px;
+}
+
+.gh-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    /* Scroll on mobile */
+}
+
+.gh-nav li {
+    padding-bottom: 10px;
+    font-size: 14px;
+    color: var(--text-primary);
+    cursor: default;
+    /* Since stats are static */
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.gh-nav li.active {
+    font-weight: 600;
+    border-bottom: 2px solid #fd8c73;
+    /* Github simplified profile active color */
+}
+
+.gh-nav li .counter {
+    background-color: rgba(110, 118, 129, 0.4);
+    border-radius: 2em;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    min-width: 20px;
+    padding: 0 6px;
+    text-align: center;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid rgba(240, 246, 252, 0.1);
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    color: var(--text-primary);
+    background-color: var(--bg-tertiary);
+}
+
+.btn-secondary:hover {
+    background-color: #30363d;
+    text-decoration: none;
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.project-card {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: border-color 0.2s;
+}
+
+.project-card:hover {
+    /* Slight border highlight */
+    border-color: var(--border-active);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.repo-name {
+    font-weight: 600;
+    font-size: 20px;
+    /* Slightly larger for clarity */
+    color: var(--accent-color);
+    word-break: break-all;
+}
+
+.repo-name:hover {
+    text-decoration: underline;
+}
+
+.badge {
+    border: 1px solid var(--border-color);
+    border-radius: 2em;
+    color: var(--text-secondary);
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    padding: 0 7px;
+    white-space: nowrap;
+}
+
+.description {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 16px;
+    flex-grow: 1;
+    /* Pushes footer down */
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: auto;
+    justify-content: space-between;
+    /* Separate lang and button */
+}
+
+.language {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.lang-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid rgba(240, 246, 252, 0.2);
+}
+
+.btn-link {
+    font-size: 12px;
+    color: var(--text-secondary);
+    background-color: var(--bg-tertiary);
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    background-color: var(--btn-primary-bg);
+    border-color: rgba(240, 246, 252, 0.1);
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/* Footer */
+.gh-footer {
+    border-top: 1px solid var(--border-color);
+    padding: 40px 0;
+    margin-top: 40px;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.gh-footer .container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo i {
+    font-size: 24px;
+    color: var(--border-active);
+}
+
+.footer-logo:hover i {
+    color: var(--text-primary);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .gh-header .container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .profile-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-actions {
+        width: 100%;
+    }
+
+    .header-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
